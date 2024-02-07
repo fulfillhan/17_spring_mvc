@@ -65,10 +65,10 @@ public class SupposeDAO {
 	public ProductDTO getDTO() {
 		
 		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductId(1);
+		productDTO.setProductId(3);
 		productDTO.setProductNm("노트북1");
 		productDTO.setPrice(1000000);
-		productDTO.setDeliveryPrice(2500);
+		productDTO.setDeliveryPrice(0);
 		productDTO.setEnrollDt(new Date());
 		productDTO.setBrandId(1);
 		

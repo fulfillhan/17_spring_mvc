@@ -34,6 +34,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+
+// 클래스의 @RequestMapping 사용 할 수 있으며, 해당 클래스의 모든 메서드가 /basic 경로로 매핑된다.
+@RequestMapping("/basic")
 public class MVCController {
 	
 	//value는 url주소 작성, method는 요청방식작성(method 생략할 경우 GET,POST를 모두 처리한다.)
