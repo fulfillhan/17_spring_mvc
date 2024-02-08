@@ -1,4 +1,4 @@
-package com.application.mvc.chapter01_thymeleaf;
+	package com.application.mvc.chapter01_thymeleaf;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
