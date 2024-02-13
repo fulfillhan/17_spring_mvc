@@ -4,7 +4,8 @@
 <!-- sql과 매핑할 자바객체를(패키지명.인터페이스명)형태로 namespace에 작성한다. -->
 <mapper namespace="com.application.mvc.chapter03_mybatis.MybatisBasic">
 
-	<!--  
+
+<!--  
 	<select id="ex01" resultType="결과타입">
 		SELECT
 				*
@@ -23,7 +24,7 @@
 	</select>
 	
 	
-	<insert id="ex03" parameterType="입력데이터 타입">
+	<insert id="ex03" parameterType="입력데이터 타입">//생략가능
 	
 	INSERT INTO
 	테이블
@@ -41,3 +42,5 @@
 	WHERE 조건절
 	
 	</delete>  -->
+	
+	</mapper>
