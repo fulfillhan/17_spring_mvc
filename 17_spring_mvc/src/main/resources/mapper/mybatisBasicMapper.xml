@@ -2,7 +2,7 @@
 <!-- 해당 xml파일이 mapper 파일로 사용하는 것을 선언함 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- sql과 매핑할 자바객체를(패키지명.인터페이스명)형태로 namespace에 작성한다. -->
-<mapper namespace="com.application.mvc.chapter03_mybatis.MybatisBasic"></mapper>
+<mapper namespace="com.application.mvc.chapter03_mybatis.MybatisBasic">
 
 	<!--  
 	<select id="ex01" resultType="결과타입">

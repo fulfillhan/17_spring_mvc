@@ -37,10 +37,10 @@ public class V2C_binding {
 	// 오류 발생 외우기!!
 	//오류발생 : 전송방식(GET,POST) 불일치, type=Method Not Allowed, status=405)
 	@PostMapping("/modelAttribute") // 에러발생 : 경로오류 404(not found) 발생 확인
-	public String modelAttribute(@ModelAttribute ProductDTO productDTO,
-			                     @RequestParam("isPC") boolean isPC,
-			                     @RequestParam("locationId") long locationId,
-			                     @RequestParam("lang") String lang) {
+	public String modelAttribute( ProductDTO productDTO,
+			                     boolean isPC,
+			                     long locationId,
+			                      String lang) {
 		//@ModelAttribute 생략가능하다
 		// 에러발생: 1.Bad Request, status=400 파라메타 불일치
 
@@ -68,7 +68,7 @@ public class V2C_binding {
 	 * - 웹 시스템을 개발할 경우 모델 형식(DTO , POJO)으로 모든 데이터를 전달 받기 어려운 경우가 있는데(DTO + @의 데이터) 
 	 *   Map을 사용하면 모든 값을 수용할 수 있다.
 	 *
-	 * - Map으로 전달되는 데이터가 정수,실수,글자등 다양한 데이터일 경우 다형성을 이용하여 Object타입으로 처리할 수 있다.
+	 * - .Map으로 전달되는 데이터가 정수,실수,글자등 다양한 데이터일 경우 다형성을 이용하여 Object타입으로 처리할 수 있다
 	 * 
 	 */
 	

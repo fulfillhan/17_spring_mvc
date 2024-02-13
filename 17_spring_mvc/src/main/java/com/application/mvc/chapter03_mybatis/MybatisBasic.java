@@ -29,7 +29,7 @@ import com.application.mvc.data.BrandDTO;
 
 */
 @Mapper//@REPOSITORY 어노테이션 없이 인터페이스로만 기능을 구현할 수 있다.
-public interface MYbatisBasic {
+public interface MybatisBasic {
 	
 	public void ex01();
 	public void ex02(long pk);

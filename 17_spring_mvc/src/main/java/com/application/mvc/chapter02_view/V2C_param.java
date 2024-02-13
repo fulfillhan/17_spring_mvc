@@ -48,9 +48,9 @@ public class V2C_param {
 	 */
 	 
 	 @GetMapping("/requestParam")
-		public String requestParam(long titleId , 
-								   String tab , 
-								   int no) {
+		public String requestParam(@RequestParam long titleId , 
+									@RequestParam  String tab , 
+									@RequestParam int no) {
 			
 			System.out.println("\n requestParam \n");
 			System.out.println(titleId);
