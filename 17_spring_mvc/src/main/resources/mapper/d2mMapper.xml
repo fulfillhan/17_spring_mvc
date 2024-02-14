@@ -43,22 +43,76 @@
 	
 	</update>
 
-	<!-- 단일 데이터 전송예시3 -->
-
+	<!-- 단일 데이터 전송예시3  SELECT 로 보내고 받기-->
+		<select id="ex03" parameterType="String" resultType="BrandDTO">
+		SELECT *
+		FROM BRAND
+		WHERE BRAND_NM=#{brandNm}
+		</select>
 
 	<!-- DTO 전송예시1 -->
+	<insert id="ex04" parameterType="BrandDTO">
+	INSERT INTO BRAND
+	VALUES (
+		#{brandId},
+		#{brandNm},
+		NOW(),
+		#{activeYn}	
+	)
+	</insert>
+	
 	
 	<!-- DTO 전송예시2 -->
+	<insert id="ex05" parameterType="ProductDTO">
+	 INSERT INTO PRODUCT(
+	 	PRODUCT_NM,
+	 	PRICE,
+	 	DELIVERY_PRICE,
+	 	ENROLL_DT,
+	 	BRAND_ID
+	 
+	 )
+	 VALUES(
+	 #{productNm},
+	 #{price},
+	 #{deliveryPrice},
+	 NOW(),
+	 #{brandId}
+	 )
+	 
+	</insert>
+	
 	
 	<!-- DTO 전송예시3 -->
-	
+	<select id="ex06" parameterType="ProductDTO" resultType="ProductDTO">
+	SELECT *
+	FROM PRODUCT
+	WHERE PRICE >= #{price} AND DELIVERY_PRICE = #{deliveryPrice]
+	</select>
 	
 	<!-- Map 전송예시1 -->
 	
+	<select id="ex07" parameterType="hashmap" resultType="ProductDTO">
+		SELECT *
+		FROM PRODUCT
+		WHERE PRICE BETWEEN #{min} AND #{max}
+	</select>
+	
 	<!-- Map 전송예시2 -->
+	<select id="ex08" parameterType="hashmap" resultType="BrandDTO">
+	SELECT *
+	FROM BRAND
+	WHERE ENTERED_DT BETWEEN #{startDate} AND #{endDate}
+	</select>
 	
 	<!-- Map 전송예시3 -->
-
+	<select id="ex09" parameterType="map" resultType="map">
+	SELECT *
+	FROM PRODUCT P
+	JOIN BRAND B
+	ON P.BRAND_ID = B.BRAND_ID
+	WHERE P.PRICE > #{price} AND B.ACTIVE_YN = #{activeYn}
+	</select>
 
 
 

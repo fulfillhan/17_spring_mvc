@@ -54,6 +54,10 @@ public class D2M_test {
 	public void ex03() {
 		System.out.println("\n - ex03 - \n");
 		String brandNm = "apple";
+		for (BrandDTO brandDTO : d2m.ex03(brandNm)) {
+			System.out.println(brandDTO);
+		}
+		
 	}
 	
 	
@@ -63,10 +67,12 @@ public class D2M_test {
 		System.out.println("\n - ex04 - \n");
 		
 		BrandDTO brandDTO = new BrandDTO();
-		brandDTO.setBrandId(1); // Duplicate entry '~~~' for key 'PRIMARY' : primary key 중복 에러
-									 // Data too long for column				: 데이터 길이 오버플로우 에러
-		brandDTO.setBrandNm("추가된브랜드");
+		brandDTO.setBrandId(101); // Duplicate entry '~~~' for key 'PRIMARY' : primary key 중복 에러
+									
+		brandDTO.setBrandNm("추가된브랜드"); 
 		brandDTO.setActiveYn("N");
+		//brandDTO.setActiveYn("Noooooo");// Data too long for column : 데이터 길이 오버플로우 에러
+		d2m.ex04(brandDTO);
 		
 	}
 	
@@ -80,6 +86,7 @@ public class D2M_test {
 		productDTO.setPrice(1);
 		productDTO.setDeliveryPrice(1);
 		productDTO.setBrandId(1);
+		d2m.ex05(productDTO);
 	}
 	
 	
@@ -90,6 +97,9 @@ public class D2M_test {
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setPrice(1000000);
 		productDTO.setDeliveryPrice(3000);
+		for (ProductDTO dto : d2m.ex06(productDTO)) {
+			
+		}
 	}
 	
 	
@@ -100,6 +110,9 @@ public class D2M_test {
 		Map<String, Integer> priceMap = new HashMap<String, Integer>();
 		priceMap.put("min", 500000);
 		priceMap.put("max", 1000000);
+		for (ProductDTO productDTO  : d2m.ex07(priceMap)) {
+			System.out.println(productDTO);
+		}
 	}
 	
 	
@@ -110,6 +123,9 @@ public class D2M_test {
 		Map<String, String> dateMap = new HashMap<String, String>();
 		dateMap.put("startDate","2021-01-01");
 		dateMap.put("endDate", "2021-03-31");
+		for (BrandDTO brandDTO : d2m.ex08(dateMap)) {
+			System.out.println(brandDTO);
+		}
 	}
 	
 	
@@ -120,6 +136,9 @@ public class D2M_test {
 		Map<String, Object> searchMap = new HashMap<String, Object>();
 		searchMap.put("activeYn","N");
 		searchMap.put("price", 1000000);
+		for (Map<String, Object> resultMap :d2m.ex09(searchMap)) {
+			System.out.println(resultMap);
+		}
 	}
 	
 }
