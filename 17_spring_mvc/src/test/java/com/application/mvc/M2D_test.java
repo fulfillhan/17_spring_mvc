@@ -1,6 +1,7 @@
 package com.application.mvc;
 
-import java.util.Map;
+import java.util.Map
+;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +48,10 @@ public class M2D_test {
 	@Test
 	public void ex02() {
 		System.out.println("\n - ex02 - \n");
-		for (BrandDTO brandDTO : m2d.ex02()) {
-			System.out.println(brandDTO);
+		for (BrandDTO brandDTO : m2d.ex02()) { 
+			System.out.println(brandDTO); 
 		}
+
 	}
 	
 	// DTO 반환 예시1

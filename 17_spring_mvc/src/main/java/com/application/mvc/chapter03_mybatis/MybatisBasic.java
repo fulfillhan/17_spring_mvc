@@ -1,4 +1,4 @@
-package com.application.mvc.chapter03_mybatis;
+	package com.application.mvc.chapter03_mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 

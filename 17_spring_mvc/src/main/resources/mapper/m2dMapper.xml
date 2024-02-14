@@ -37,7 +37,7 @@
 
 <mapper namespace="com.application.mvc.chapter03_mybatis.M2D">
 
-<!-- DTO List 반환 예시1 -->
+    <!-- DTO List 반환 예시1 -->
 	<select id="ex01" resultType="ProductDTO"><!-- ArrayList<ProductDTO> -->
 	  SELECT *
 	  FROM PRODUCT
@@ -209,8 +209,6 @@
 				JOIN BRAND B
 				ON P.BRAND_ID = B.BRAND_ID
 	</select>
-
-
 
 
 </mapper>
