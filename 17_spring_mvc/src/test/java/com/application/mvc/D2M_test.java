@@ -90,7 +90,7 @@ public class D2M_test {
 	}
 	
 	
-	// DTO 전송 예시3
+	// DTO 전송 예시3  
 	@Test
 	public void ex06() {
 		System.out.println("\n - ex06 - \n");
@@ -98,7 +98,7 @@ public class D2M_test {
 		productDTO.setPrice(1000000);
 		productDTO.setDeliveryPrice(3000);
 		for (ProductDTO dto : d2m.ex06(productDTO)) {
-			
+			System.out.println(dto);
 		}
 	}
 	

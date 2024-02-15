@@ -87,7 +87,7 @@
 	<select id="ex06" parameterType="ProductDTO" resultType="ProductDTO">
 	SELECT *
 	FROM PRODUCT
-	WHERE PRICE >= #{price} AND DELIVERY_PRICE = #{deliveryPrice]
+	WHERE PRICE >= #{price} AND DELIVERY_PRICE = #{deliveryPrice}
 	</select>
 	
 	<!-- Map 전송예시1 -->
