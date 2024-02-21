@@ -20,9 +20,12 @@ public interface DynamicQueryDAO {
 	   public void foreachEx03(long[] brandIdList);// [ foreach ] delete 사용예시
 		
 		// [ foreach ] update 사용예시1
+	   public  void foreachEx04(long[] brandId);
+	   
 		// [ foreach ] update 사용예시2
-		
+		public void foreachEx05(List<Map<String, Object>> mapList);
 		// [ where ] 사용예시
+		public List<ProductDTO> whereEx(ProductDTO productDTO );
 		// [ set ] 사용예시
-
+		public void setEx(ProductDTO productDTO);
 }

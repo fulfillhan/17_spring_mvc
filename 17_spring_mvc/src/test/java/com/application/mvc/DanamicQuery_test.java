@@ -144,8 +144,8 @@ public class DanamicQuery_test {
 			
 			System.out.println("\n --- foreachEx04 --- \n");
 			
-			int[] productIdList = {1,2,3,4,5,6};
-			
+			long[] productIdList = {1,2,3,4,5,6};
+			dynamicQueryDAO.foreachEx04(productIdList);
 		}
 		
 		
@@ -161,10 +161,10 @@ public class DanamicQuery_test {
 			for (int i = 1; i < 11; i++) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("productId" , i);
-				map.put("addPrice" , 100 * i);
+				map.put("addPrice" , 10 * i);
 				mapList.add(map);
 			}
-			
+			dynamicQueryDAO.foreachEx05(mapList);
 		}
 		
 
@@ -181,6 +181,11 @@ public class DanamicQuery_test {
 			// productDTO.setProductNm("삼성");
 			productDTO.setBrandId(1);
 			
+			//dynamicQueryDAO.whereEx(productDTO);
+			for (ProductDTO proDto :dynamicQueryDAO.whereEx(productDTO) ) {
+				System.out.println(proDto);
+			}
+			
 		}
 
 		
@@ -196,7 +201,10 @@ public class DanamicQuery_test {
 			// 2) price만 있을 경우 > 오류
 			// 3) deliveryPrice만 있을 경우 > 정상
 			productDTO.setPrice(1);
-			productDTO.setDeliveryPrice(1);
+			//productDTO.setDeliveryPrice(1);
+			
+			dynamicQueryDAO.setEx(productDTO);
+			
 		
 		}
 		

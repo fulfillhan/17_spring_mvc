@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>controllerToAjax</title>
+<script th:src="@{/jquery/jquery-3.6.1.min.js}"></script>
+<script>
+
+	$().ready(function(){
+		
+		// (경우의 수 1) 단일데이터 return
+		$("#btn1").click(function(){
+			
+			/*
+				
+				[형식]
+			
+				파라메타
+				
+			*/
+			$.ajax({
+				url:"/c2a/ex01",
+				type:"get",
+				success:function(data){
+					console.log("--- single data ---");
+					console.log(data);
+					console.log("");
+				}
+			});
+			
+		});
+		
+		
+		// (경우의 수 2) DTO return
+		$("#btn2").click(function(){
+			
+			/*
+			
+				[형식]
+
+				파라메타.속성명
+				
+			*/
+			
+			$.ajax({
+				url:"/c2a/ex02",
+				type:"get",
+				success:function(data){
+					console.log("--- DTO ---");
+					console.log(data.productId);
+					console.log(data.productNm);
+					console.log(data.price);
+					console.log(data.deliveryPrice);
+					console.log(data.enrollDt);
+					console.log(data.brandId);
+					console.log("");
+				}
+				
+			});
+			
+		});
+		
+		
+		// (경우의 수 3) List<DTO> return
+		$("#btn3").click(function(){
+					
+			/*
+			
+				[형식]	
+			
+				$(파라메타).each(function{
+					this.속성명
+				});
+				
+			*/
+			$.ajax({
+				url:"/c2a/ex03",
+				type:"get",
+				success:function(data){
+					console.log("--- DTOList---");
+					$(data).each(function(){
+						console.log(this.productId);
+						console.log(this.productNm);
+						console.log(this.price);
+						console.log(this.deliveryPrice);
+						console.log(this.enrollDt);
+						console.log(this.brandId);
+						console.log("");
+					});
+					console.log("");
+				}
+				
+			
+		});
+			
+					
+		});
+		
+		
+		// (경우의 수 4) Map return
+		$("#btn4").click(function(){
+		
+			/*
+			
+				[형식]
+
+				파라메타.키
+				
+			*/
+			$.ajax({
+				url:"/c2a/ex04",
+				type:"get",
+				success:function(data){
+					console.log("--- map ---");
+					console.log(data.productId);
+					console.log(data.productNm);
+					console.log(data.brandId);
+					console.log(data.price);
+					console.log(data.deliveryPrice);
+					console.log(data.enrollDt);
+					console.log(data.addTax);
+					console.log(data.totalPrice);
+					console.log(data.brandNm);
+					console.log(data.enteredDt);
+					console.log(data.activeYn);
+					 console.log("");
+				}
+			     
+			});
+			
+		});
+			
+		
+		
+		
+		// (경우의 수 5) List<Map> return
+		$("#btn5").click(function(){
+			
+			/*
+			
+				[형식]
+			
+				$(파라메타).each(function{
+					this.키
+				});
+			
+			*/
+			$.ajax({
+				url:"/c2a/ex05",
+				type:"get",
+				success:function(data){
+					$(data).each(function(){
+						console.log(this.productId);
+						console.log(this.productNm);
+						console.log(this.brandId);
+						console.log(this.price);
+						console.log(this.deliveryPrice);
+						console.log(this.enrollDt);
+						console.log(this.addTax);
+						console.log(this.totalPrice);
+						console.log(this.brandNm);
+						console.log(this.enteredDt);
+						console.log(this.activeYn);
+					});
+						console.log("");	
+				}
+				
+			});
+			
+		});
+		
+	});
+	
+</script>
+</head>
+<body>
+
+	<fieldset>
+		<legend>ControllerToAjax</legend>
+	    <input type="button" id="btn1" value="1) 단일데이터" >
+	    <input type="button" id="btn2" value="2) DTO" >
+	    <input type="button" id="btn3" value="3) List(DTO)" >
+	    <input type="button" id="btn4" value="4) map" >
+	    <input type="button" id="btn5" value="5) List(map)" >
+	</fieldset>
+	
+</body>
+</html>
