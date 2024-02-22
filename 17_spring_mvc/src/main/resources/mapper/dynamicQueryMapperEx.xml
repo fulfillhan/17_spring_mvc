@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.application.mvc.chapter04_dynamicQuery.DynamicQueryDAO2_EX" >
+
+
+	<!-- [ if ] 사용예시 -->
+	<select id="ifEx" parameterType="hashmap" resultType="ProductDTO" >
+	SELECT *
+	FROM PRODUCT
+	WHERE <if test="searchKeyword == 'enrollDt'">
+			ENROLL_DT LIKE CONCAT('%',#{searchword}, '%')
+		</if>
+		<if test="searchKeyword == 'productNm'">
+			PRODCUT_NM LIKE CONCAT('%',#{searchword},'%')
+		</if>
+	</select>
+	<!-- [ when ] 사용예시 -->
+	<select id="whenEx" parameterType="hashmap" resultType="ProductDTO">
+		SELECT
+				*
+		FROM
+				PRODUCT
+		WHERE <choose>
+			<when test="searchKeyword == 'enrollDT'">
+					ENROLL_DT LIKE CONCAT('%', #{searchWord},'%')
+			</when>
+			<when test='searchKeyword.equals("productNm")'>
+					PRODUCT_NM LIKE CONCAT('%', #{searchWord} , '%')
+			</when>
+		</choose>
+	</select>
+	
+	<!-- [ otherwise ] 사용예시 -->
+	
+	<select id="otherwiseEx" parameterType="int" resultType="ProductDTO">
+	SELECT
+				*
+		FROM
+				PRODUCT
+		WHERE
+				<choose>
+					<when test="deliveryPrice == 0">
+						DELIVERY_PRICE = 0
+					</when>
+					<otherwise>
+						DELIVERY_PRICE != 0
+					</otherwise>
+				</choose>	
+			
+	</select>
+	<insert id="foreachEx01" parameterType="BrandDTO">
+	  INSERT INTO BRAND 
+	  VALUES <foreach item="내마음" collection="list" separator=",">
+	  		 (#{내마음.brandId} , #{내마음.brandNm} , #{내마음.enteredDt} , #{내마음.activeYn})
+	  </foreach>	
+	    </insert>
+	   <!-- [ foreach ] select 사용예시  -->
+	   <select id="foreachEx02" resultType="BrandDTO">
+	   SELECT *
+	   FROM BRAND
+	   WHERE BRAND_ID IN <foreach collection="array" item="임시변수" open="(" separator="," close=")"></foreach>
+	   		#{임시변수}
+	   </select>
+	   <!-- [ foreach ] delete 사용예시 -->
+	    <delete id="foreachEx03" >
+	    DELETE FROM BRAND
+	    WHERE 
+	    		BRAND_ID IN <foreach collection="array" item="brandId" open="(" separator="," close=")">
+	    				#{brandId}
+	    		</foreach>
+	    </delete>
+</mapper>

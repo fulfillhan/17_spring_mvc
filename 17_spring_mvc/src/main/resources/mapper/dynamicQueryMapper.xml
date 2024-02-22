@@ -45,7 +45,7 @@
 
 	<!-- [ if ] 사용예시 -->
 	
-	<select id="ifEx" parameterType="hashmap" resultType="ProductDTO">
+	<select id="ifEx" parameterType="map" resultType="ProductDTO">
 			SELECT
 					*
 			FROM

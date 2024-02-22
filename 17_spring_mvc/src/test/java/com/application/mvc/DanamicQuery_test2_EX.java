@@ -1,6 +1,7 @@
 package com.application.mvc;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,13 +11,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.application.mvc.chapter04_dynamicQuery.DynamicQueryDAO;
+
+import com.application.mvc.chapter04_dynamicQuery.DynamicQueryDAO2_EX;
 import com.application.mvc.data.BrandDTO;
 import com.application.mvc.data.ProductDTO;
 
 @SpringBootTest 
 public class DanamicQuery_test2_EX {
 	
+	@Autowired
+	private DynamicQueryDAO2_EX dao2_EX;
 		
 	
 	// [ if ] 사용예시
@@ -26,10 +30,14 @@ public class DanamicQuery_test2_EX {
 			System.out.println("\n --- ifEx --- \n");
 			
 			Map<String,Object> searchMap = new HashMap<String, Object>();
-			searchMap.put("searchKeyword", "enrollDt");
-			searchMap.put("searchWord" , "2022");
-//				searchMap.put("searchKeyword", "productNm");
-//				searchMap.put("searchWord" , "삼성전자");
+//			searchMap.put("searchKeyword", "enrollDt");
+//			searchMap.put("searchWord" , "2022");
+				searchMap.put("searchKeyword", "productNm");
+				searchMap.put("searchWord" , "삼성전자");
+				
+				for (ProductDTO productDTO : dao2_EX.ifEx(searchMap)) {
+					System.out.println(productDTO);
+				}
 			
 		}
 
@@ -83,7 +91,7 @@ public class DanamicQuery_test2_EX {
 				brandList.add(brandDTO);
 				
 			}
-			
+			dao2_EX.foreachEx01(brandList);
 			
 		}
 
@@ -97,6 +105,7 @@ public class DanamicQuery_test2_EX {
 			
 			long[] brandIdList = {1 , 2 , 3};
 			
+			dao2_EX.foreachEx02(brandIdList);
 		}
 
 		
@@ -108,6 +117,7 @@ public class DanamicQuery_test2_EX {
 			System.out.println("\n --- foreachEx03 --- \n");
 			long[] brandIdList = {100 , 101 , 102 , 103 , 104 };
 			
+			dao2_EX.foreachEx03(brandIdList);
 		}
 
 		
