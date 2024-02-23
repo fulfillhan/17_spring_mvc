@@ -7,7 +7,8 @@
 <script>
 
 $().ready(function(){
-
+// 궁금증? parse()함수는 역직렬화이면 get방식일때 사용되는것인가? javascript 객체로 변환되는 것으로 어떻게 사용되는지?
+	
 	// 1. 단일 데이터 전송
 	$("#btn1").click(function(){
 		
@@ -47,7 +48,7 @@ $().ready(function(){
 				type : "post",
 				contentType : "application/json",// JSON 타입으로 데이터를 서버로 전송한다.
 				data: JSON.stringify(param) // JSON.stringify(JSON); 함수를 사용하여 문자열로 직렬화하여 데이터를 서버로 전송한다.	
-				
+			
 				
 			});
 			
@@ -82,26 +83,26 @@ $().ready(function(){
 			
 		});
 		
-		// 4. map 전송
-		$("#btn4").click(function(){
-			
-			let param = {
-				"orderId" : "order1",
-				"orderQty" : 2,
-				"cartId" : "cart3",
-				"cartQty" : 4
-			};
-			
-			$.ajax({
+			// 4. map 전송
+			$("#btn4").click(function(){
 				
-				url : "/a2c/ex04",
-				type : "post",
-				contentType : "application/json",
-				data : JSON.stringify(param)
+				let param = {
+					"orderId" : "order1",
+					"orderQty" : 2,
+					"cartId" : "cart3",
+					"cartQty" : 4
+				};
 				
-			});
+				$.ajax({
 					
-		});
+					url : "/a2c/ex04",
+					type : "post",
+					contentType : "application/json",
+					data : JSON.stringify(param)
+					
+				});
+						
+			});
 	
 		
 		

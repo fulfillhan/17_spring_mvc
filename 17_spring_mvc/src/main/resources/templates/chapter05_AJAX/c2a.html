@@ -78,27 +78,27 @@
 				    
 				 // `(백틱) 을 사용하여 블록문자열을 생성할 수 있다.
 				 // ${} el표현식으로 데이터를 출력할 수 있다.
-				  let dataView2 = `
-						<table border='1'>
-							<tr>
+				 let dataview2 = `
+				 		<table border ='1'>
+							 <tr>
 								<th>productId</th>
 								<th>productNm</th>
 								<th>price</th>
 								<th>deliveryPrice</th>
 								<th>enrollDt</th>
 								<th>brandId</th>
-							</tr>
-							<tr>
-								<td>${data.productId}</td>
-								<td>${data.productNm}</td>
-								<td>${data.price}</td>
+							 </tr>
+							 <tr>
+								 <td>${data.productId}</td>
+								 <td>${data.productNm}</td>
+								 <td>${data.price}</td>
 								<td>${data.deliveryPrice}</td>
 								<td>${data.enrollDt}</td>
 								<td>${data.brandId}</td>
-							</tr>
-						</table>
-					`;    
-				    
+							 </tr>
+							 </table>
+				 `;
+				 
 				    $("#printData").html(dataview2);
 				}
 				
@@ -222,7 +222,8 @@
 								<td>${data.brandNm}</td>
 								<td>${data.enteredDt}</td>
 								<td>${data.activeYn}</td>
-							</tr>`;
+							</tr>
+							</table>`;
 						
 						$("#printData").html(viewData);	
 						
