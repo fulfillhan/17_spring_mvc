@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>RESTFUL API 사용예시</title>
+<script th:src="@{/jquery/jquery-3.6.1.min.js}"></script>
+<script>
+
+
+	$(function(){
+		
+		getBoardList();
+		
+		$("#getDetail").click(function(){
+			
+			
+		});
+		
+		$("#create").click(function(){
+			
+			
+		});
+	
+		$("#update").click(function(){
+		
+			});			
+		
+	});
+	$("#delete").click(function(){
+		
+    });
+
+	// 하나만 따로 표현
+	function getBrandList() {
+	   $.ajax({
+		   url:"/brand2",
+		   type:"get",
+		   success:function(){
+			   
+		   }
+		   
+	   });
+		
+	}
+
+
+</script>
+</head>
+<body>
+
+	<h1>Brand Management</h1>
+	<div id="printData">
+	</div>
+	<hr>
+	
+	<div>
+		<h3>Get Brand Detail</h3>
+		<p>brandId : <input type="text" id="getDetailId" placeholder="brandId"></p>
+		<input type="button" id="getDetail" value="Get Detail">
+	</div>
+	<hr>
+	
+	<div>
+		<h3>Create Brand</h3>
+		<p>brandId : <input type="text" id="creBrandId" placeholder="brandId"></p>
+		<p>brandNm : <input type="text" id="creBrandNm" placeholder="brandNm"></p>
+		<p>enteredDt : <input type="text" id="creEnteredDt" placeholder="enteredDt"></p>
+		<p>activeYn : <input type="text" id="creActiveYn" placeholder="activeYn"></p>
+		<input type="button" id="create" value="Create">
+	</div>
+	<hr>
+
+	<div>
+	<h3>Update Brand</h3>
+		<p>brandId : <input type="text" id="upBrandId" placeholder="brandId"></p>
+		<p>brandNm : <input type="text" id="upBrandNm" placeholder="brandNm"></p>
+		<p>enteredDt : <input type="text" id="upEnteredDt" placeholder="enteredDt"></p>
+		<p>activeYn : <input type="text" id="upActiveYn" placeholder="activeYn"></p>
+		<input type="button" id="update" value="Update">
+	</div>
+	
+	<hr>
+
+	<div>
+		<h3>Delete Brand</h3>
+		<p>brandId : <input type="text" id="delBrandId" placeholder="brandId"></p>
+		<input type="button" id="delete" value="Delete">
+	</div>
+
+</body>
+</html>

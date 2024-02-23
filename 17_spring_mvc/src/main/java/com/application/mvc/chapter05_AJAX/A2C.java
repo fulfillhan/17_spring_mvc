@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.application.mvc.data.ProductDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("/a2c")
@@ -39,7 +40,7 @@ public class A2C {
 	*/
 	
 	
-	// 1. 단일 데이터 전송 ( @RequestParam 어노테이션으로 데이터를 전송받는다. 이걸 쓰는이유는? : )
+	// 1. 단일 데이터 전송 ( @RequestParam 어노테이션으로 데이터를 전송받는다.  )
 	@PostMapping("/ex01")
 	@ResponseBody
 	public String ex01(@RequestParam("prodcutId") long productId) {

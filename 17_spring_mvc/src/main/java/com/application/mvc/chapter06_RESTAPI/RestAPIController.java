@@ -19,27 +19,40 @@ import com.application.mvc.data.SupposeDAO;
 @RequestMapping("/product")   // 자원 기반의 URL을 사용하고 HTTP 메서드를 사용하여 구현한다.
 public class RestAPIController {
 	
-	/* URL자원(데이터)에 대한 CRUD (Create, Read, Update, Delete) 작업을 REST API를 통해 제공한다. */
+	/* URL자원(데이터)에 대한 CRUD (Create, Read, Update, Delete) 작업을 REST API를 통해 제공한다.
+	 * @Get         (전체)
+      @Get("/1")   (상세)
+	  @Post         (추가)
+	  @Put("/1")    (수정)  다를수있음
+	  @Delete("/1") (삭제) */
 	@Autowired
 	private SupposeDAO supposeDAO;
 	
-	@GetMapping // Get 요청처리 
+	@GetMapping // 전체 데이터 요청 : Get 요청처리 
 	public List<ProductDTO> getProductList(){
 		return supposeDAO.getDTOList();
 	}
 	
-	@GetMapping("/{productId}")// Get 요청처리 , 경로가변수다!
+	@GetMapping("/{productId}")// 상세 데이터 요청 : Get 요청처리 , 경로가변수다!
 	public ProductDTO getProductDetail(@PathVariable("productId") long productId ){// @PathVariable 애노테이션으로 데이터를 전달 받는다.
 		System.out.println(productId);
 		return supposeDAO.getDTO();
 	}
 
 
-	@PostMapping
+	@PostMapping // 데이터 추가(생성) : POST요청 처리 
 	public void createProduct(@RequestBody ProductDTO productDTO) {
 		System.out.println(productDTO);
 	}
-	//@PutMapping
-	//@DeleteMapping
+	@PutMapping("/{productId}") // 데이터 수정: PUT요청 처리
+	public void updateProduct(@PathVariable("productId") long productId, @RequestBody ProductDTO productDTO) {
+		System.out.println("id : "  + productId);
+		System.out.println("DTO : "  + productDTO);
+	}
+	
+	@DeleteMapping("/deleteId")// 데이터 삭제 : Delete요청
+	public void deleteId(@PathVariable("prdocutId") long prouductId) {
+		System.out.println("id : " + prouductId);
+	}
 	
 }
