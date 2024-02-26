@@ -29,6 +29,7 @@
 							<td>${data.activeYn}</td>
 							<td>${data.enteredDt}</td>
 	 					</tr>
+	 					</table>
 	 					`;
 	 					$("#printData").html(brnadDetail);
 				}
@@ -76,18 +77,18 @@
 			});			
 		
 	
-	$("#delete").click(function(){
-		
-		$.ajax({
-			url : "/brand/" + $("#delBrandId").val(),
-			type : "delete",
-			success : function() {
-				getBrandList();
-			}
+		$("#delete").click(function(){
+			
+			$.ajax({
+				url : "/brand/" + $("#delBrandId").val(),
+				type : "delete",
+				success : function() {
+					getBrandList();
+				}
+				
+			});
 			
 		});
-		
-	});
 	
 });
 

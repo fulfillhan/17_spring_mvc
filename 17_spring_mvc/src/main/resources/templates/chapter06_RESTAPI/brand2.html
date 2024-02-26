@@ -12,22 +12,80 @@
 		getBoardList();
 		
 		$("#getDetail").click(function(){
-			
+			$.ajax({
+				url:"/brand2/"+$("#getDetailId").val(),
+				type:"get",
+				success : function(data){
+					let brandDetail=`
+					<table border = '1'>
+					 <tr>
+						<th>brandId</th>
+						<th>brandNm</th>
+						<th>activeYn</th>
+						<th>enteredDt</th>
+				   </tr>
+				   <tr>
+					    <td>${data.brandId}</td>
+						<td>${data.brandNm}</td>
+						<td>${data.activeYn}</td>
+						<td>${data.enteredDt}</td>
+				   </tr>
+					</table>
+					`;
+					$("#printData").html(brandDetail);
+				}
+			});
 			
 		});
 		
 		$("#create").click(function(){
 			
+			let param={
+				"brandId":$("#creBrandId").val(),
+				"brandNm":$("#creBrandNm").val(),
+				"activeYn":$("#creEnteredDt").val(),
+				"enteredDt":$("#creActiveYn").val(),
+			}
 			
+			$.ajax({
+				url : "/brand",
+				type : "post",
+				contentType : "application/json",
+				data : JSON.stringify(param),
+				success : function(){
+					getBoardList();
+				}
+			});
 		});
 	
 		$("#update").click(function(){
-		
+				let param={
+				"brandId":$("#creBrandId").val(),
+				"brandNm":$("#creBrandNm").val(),
+				"activeYn":$("#creEnteredDt").val(),
+				"enteredDt":$("#creActiveYn").val(),
+				}
+				$.ajax({
+					url:"/brand/",
+					type:"put",
+					contentType:"application/json",
+					data:JSON.stringify(param),
+					success: function(){
+						getBrandList();
+					}
+				});
 			});			
 		
 	});
 	$("#delete").click(function(){
-		
+		$.ajax({
+			url:"/brand/"+$("#delBrandId").val(),
+			type :"delete",
+			success : function(){
+				getBrandList();
+			}
+			
+		});
     });
 
 	// 하나만 따로 표현
@@ -35,7 +93,26 @@
 	   $.ajax({
 		   url:"/brand2",
 		   type:"get",
-		   success:function(){
+		   success:function(data){
+			   let boardList=`
+			   <table border='1'>
+				   <tr>
+					<th>brandId</th>
+					<th>brandNm</th>
+					<th>activeYn</th>
+					<th>enteredDt</th>
+				</tr>`;
+				$(data).each(function(){
+					brandList += `
+					<tr>
+						<td>${this.brandId}</td>
+						<td>${this.brandNm}</td>
+						<td>${this.activeYn}</td>
+						<td>${this.enteredDt}</td>
+					</tr>`;
+					
+				});
+				boardList +=`</table>`;
 			   
 		   }
 		   
