@@ -2,6 +2,7 @@
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -69,6 +70,13 @@ public class ThymeleafController {
 		request.setAttribute("mapList" , supposeDAO.getMapList()); 
 		
 		return "chapter01_thymeleaf/format";
+	}
+	
+	
+	@GetMapping("/form")
+	public String form(Model model) {
+		model.addAttribute("dto"     , supposeDAO.getDTO());// model로 바꾸서 진행
+		return "chapter01_thymeleaf/form";
 	}
 
 }
