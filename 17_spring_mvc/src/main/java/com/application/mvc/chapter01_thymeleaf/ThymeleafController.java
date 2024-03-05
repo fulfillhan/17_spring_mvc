@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.application.mvc.data.SupposeDAO;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/thymeleaf")
@@ -23,7 +24,7 @@ public class ThymeleafController {
 		return "chapter01_thymeleaf/link";
 	}
 	
-	@GetMapping("/varExpression")
+	@GetMapping("/varExpression")// 변수 표현식
 	public String varExpression(HttpServletRequest request) {
 		
 		request.setAttribute("string"  , supposeDAO.getString());
@@ -35,6 +36,15 @@ public class ThymeleafController {
 		request.setAttribute("dtoList" , supposeDAO.getDTOList());
 		request.setAttribute("map"     , supposeDAO.getMap());
 		request.setAttribute("mapList" , supposeDAO.getMapList()); 
+		
+		//unescape 예시
+		request.setAttribute("escape1", "<h6 style='color:red'>테스트 데이터1</h6>");
+		request.setAttribute("escape2", "<div align='center'>테스트 데이터2</div>");
+		
+		//session 예시
+		HttpSession session = request.getSession();
+		session.setAttribute("var1", "abcdefg");
+		session.setAttribute("var2", "admin");
 		
 		return "chapter01_thymeleaf/varExpression";
 	}

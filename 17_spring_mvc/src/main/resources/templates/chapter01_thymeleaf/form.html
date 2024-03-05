@@ -40,27 +40,27 @@
 	<hr>
 	
 	<h3>2) 다양한 Input Data 예시</h3>
-	<form >
+	<form th:action="temp" method="post" th:object="${dto}">
 		<p> checkbox : 
-			<input type="checkbox"> 1000000
-			<input type="checkbox" > 2000000
-			<input type="checkbox" > 3000000
+			<input type="checkbox" th:field="*{price}" th:value=1000000> 1000000
+			<input type="checkbox" th:field="*{price}" th:value=2000000> 2000000
+			<input type="checkbox" th:field="*{price}" th:value=3000000> 3000000
 		</p>
 		<p> radio : 
-			<input type="radio" > 0 
-			<input type="radio" > 2500
-			<input type="radio" > 3000
+			<input type="radio" th:field="*{deliveryPrice}" th:value="0" > 0 
+			<input type="radio" th:field="*{deliveryPrice}" th:value="2500"> 2500
+			<input type="radio" th:field="*{deliveryPrice}" th:value="3000"> 3000
 		</p>
 		<p> select : <!-- option value 필수 -->
-			<select>
-				<option>없음</option>
-				<option>노트북1</option>
-				<option>노트북2</option>
-				<option>노트북3</option>
+			<select th:field="*{productId}">
+				<option th:value="0">없음</option>
+				<option th:value="1">노트북1</option>
+				<option th:value="2">노트북2</option>
+				<option th:value="3">노트북3</option>
 			</select>
 		</p>
-		<p> date : <input type="date" ></p>
-		<p> textarea : <textarea rows="" cols=""></textarea></p>
+		<p> date : <input type="date" th:field="*{enrollDt}"></p><!-- 자동적으로 #dates.format()을 자동적으로 처리해줌 -->
+		<p> textarea : <textarea rows="" cols="" th:field="*{productNm}"></textarea></p> <!-- <textarea> 초기값이 있었음</textarea>-->
 	</form>
 	<hr>
 	

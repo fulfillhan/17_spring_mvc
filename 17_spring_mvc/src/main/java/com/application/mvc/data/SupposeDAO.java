@@ -67,8 +67,8 @@ public class SupposeDAO {
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductId(3);
 		productDTO.setProductNm("노트북1");
-		productDTO.setPrice(1000000);
-		productDTO.setDeliveryPrice(0);
+		productDTO.setPrice(2000000);
+		productDTO.setDeliveryPrice(3000);
 		productDTO.setEnrollDt(new Date());
 		productDTO.setBrandId(1);
 		
@@ -87,7 +87,7 @@ public class SupposeDAO {
 			productDTO.setProductId(i);
 			productDTO.setProductNm("노트북 " + i);
 			productDTO.setPrice(100000 * i);
-			productDTO.setDeliveryPrice(2500);
+			productDTO.setDeliveryPrice(3000);
 			productDTO.setEnrollDt(new Date());
 			productDTO.setBrandId(i);
 			productList.add(productDTO);

@@ -14,7 +14,8 @@
 		
 		- ${dto.field} 형태로 DTO타입의 데이터를 출력할 수 있고
 		  ${map.key}형태로 map타입의 데이터를 출력할 수 있다.
-		
+		 
+		 두번째 표현식 [[${데이터}]] 이렇게도 가능하다.
 	-->
 	
 	<h1>데이터 출력</h1>
@@ -27,6 +28,19 @@
 	<p th:text="${dtoList}"></p>
 	<p th:text="${map}"></p>
 	<p th:text="${mapList}"></p>
+	<hr>
+	<!--  두개의 차이는 ? -->
+	<!-- html 태그사이 엘리먼트에 [[${속성}]]표현식으로  데이터 출력 -->
+	<h1>데이터 출력2</h1> 
+	<p>[[${string}]]</p>
+	<p>[[${int}]]</p>
+	<p>[[${double}]]</p>
+	<p>[[${boolean}]]</p>
+	<p>[[${data}]]</p>
+	<p>[[${dto}]]</p>
+	<p>[[${dtoList}]]</p>
+	<p>[[${map}]]</p>
+	<p>[[${mapList}]]</p>
 	<hr>
 	
 	<h1>출력 우선순위</h1>
@@ -46,5 +60,49 @@
 	
 	<!-- 복수의 데이터 출력 예시 (map) -->				
 	<p th:text="|${map.productNm}, ${map.addTax}, ${map.brandNm}|"></p>
+	
+	<hr>
+	<!--
+	 
+	    # utext , [(${속성})]
+	 
+		- 타임리프에서 utext (unescaped text)는 HTML을 이스케이프 처리하지 않고 원시 HTML 코드로 출력할 때 사용하는 속성이다. 
+		
+		- 기본적으로 타임리프는 모든 변수 값을 HTML 이스케이프 처리하여 XSS(Cross-Site Scripting) 공격을 방지한다. 
+		  즉 문자열에 포함된 HTML 태그가 브라우저에 의해 해석되지 않고 그대로 표시된다. 
+		
+		- 하지만 때때로 안전하게 관리되는 HTML 콘텐츠를 페이지에 직접 삽입해야 할 필요가 있다. 
+		   이 때 utext 속성 [[${속성}]] 표현식을 사용한다. 
+		-(<> 탈출해서 따로 인식한다.)
+	-->
+	<h1>unescaped text </h1>
+	<p th:text="${escape1}"></p>
+	<p th:text="${escape2}"></p>
+	<p>[[${excape1}]]</p>
+	<p>[[${excape2}]]</p>
+	<!-- <h6 style='color:red'>테스트 데이터1</h6>
+	<div align='center'>테스트 데이터2</div> -->
+	
+	<p th:utext="${escape1}"></p>
+	<p th:utext="${escape2}"></p>
+	<p>[(${excape1})]</p>
+	<p>[(${excape2})]</p>
+	
+	
+	<hr>
+	
+	<!--
+	 
+		Thymeleaf에서 세션 데이터에 접근하려면 ${session} 객체를 사용한다. 
+		${session.속성명} 형태로 세션에 저장된 데이터를 뷰에서 접근한다.
+		
+	 -->
+	<h1>session</h1>
+	<!-- <p th:text="${sesssionScope.var1}"></p> -->
+	<p th:text="${session.var1}"></p>
+	<p th:text="${session.var2}"></p>
+	<p>[[${session.var1}]]</p>
+	<p>[[${session.var2}]]</p>
+	
 </body>
 </html>
