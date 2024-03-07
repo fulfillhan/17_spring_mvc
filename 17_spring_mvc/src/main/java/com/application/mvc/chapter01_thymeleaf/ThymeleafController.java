@@ -88,5 +88,26 @@ public class ThymeleafController {
 		model.addAttribute("dto"     , supposeDAO.getDTO());// model로 바꾸서 진행
 		return "chapter01_thymeleaf/form";
 	}
+	
+	@GetMapping("/script")
+	public String script(HttpServletRequest request) {
+		
+		 request.setAttribute("string"  , supposeDAO.getString()); 
+		 request.setAttribute("int"     , supposeDAO.getInt()); 
+		 request.setAttribute("double"  , supposeDAO.getDouble());
+		 request.setAttribute("boolean" , supposeDAO.getBoolean());
+		 request.setAttribute("date"    , supposeDAO.getDate());
+		 request.setAttribute("dto"     , supposeDAO.getDTO()); 
+		 request.setAttribute("dtoList" , supposeDAO.getDTOList()); 
+		 request.setAttribute("map"      , supposeDAO.getMap()); 
+		 request.setAttribute("mapList" , supposeDAO.getMapList());
+		 
+		 HttpSession session = request.getSession();
+		 session.setAttribute("var1", "abcdefg");
+		 session.setAttribute("var2", "admin");
+		 
+		 return "chapter01_thymeleaf/script";
+	
+	}
 
 }
