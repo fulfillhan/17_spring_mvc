@@ -103,11 +103,40 @@ public class ThymeleafController {
 		 request.setAttribute("mapList" , supposeDAO.getMapList());
 		 
 		 HttpSession session = request.getSession();
-		 session.setAttribute("var1", "abcdefg");
+		 session.setAttribute("var1", "abcdefg");				
 		 session.setAttribute("var2", "admin");
 		 
 		 return "chapter01_thymeleaf/script";
 	
+	}
+	
+	
+	@GetMapping("/content1")
+	public String content1() {
+		return "chapter01_thymeleaf/layout/ex/content1";
+	}
+	
+	@GetMapping("/content2")
+	public String content2() {
+		return "chapter01_thymeleaf/layout/ex/content2";
+	}
+	
+	@GetMapping("/content3")
+	public String content3() {
+		return "chapter01_thymeleaf/layout/ex/content3";
+	}
+	
+	@GetMapping("/main")
+	public String main() {
+		return "chapter01_thymeleaf/layout/bootstrap/main";
+	}
+	@GetMapping("/blog")
+	public String blog() {
+		return "chapter01_thymeleaf/layout/bootstrap/blog";
+	}
+	@GetMapping("/shop")
+	public String shop() {
+		return "chapter01_thymeleaf/layout/bootstrap/shop";
 	}
 
 }
