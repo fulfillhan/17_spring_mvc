@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!-- 
 
     # 선언문
@@ -8,10 +9,13 @@
 	- xmlns:layout는 Thymeleaf Layout Dialect의 XML 네임스페이스 선언으로 웹 페이지 레이아웃을 구성하기 위한 속성과 태그를 정의한다.
 
  -->
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<html xmlns:th="http://www.thymeleaf.org"  
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<!-- 
+
+	<!-- 
 	
 		# title
 		 
@@ -20,7 +24,8 @@
 	
 	 -->
 
-<title layout:title-pattern ="$CONTENT_TITLE">Thymeleaf layout</title><!--동적으로 TITLE넘어간다-->
+	<title layout:title-pattern="$CONTENT_TITLE">Thymeleaf layout</title>
+	
 <!-- 
 
 	# import
@@ -29,13 +34,13 @@
 	   리소스 관리가 훨씬 간단해지고 리소스의 import를 재사용하여 개발 효율성이 크게 향상된다.
 	
  -->
- 
+
 <script th:src="@{/script.js}"></script>
 <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-	
+
 	<!-- 
 	
 		# header , side , footer 
@@ -46,12 +51,11 @@
 		- 화면의 하단부를 주로 footer로 표현한다.
 		
 	 -->
-	
 
-	
 	<h1>헤더(header) 입니다.</h1>
 	<hr>
-	<h1>사이드(side, aside, nav, menu) 입니다.</h1>
+	
+	<h1>사이드(side , aside , nav , menu) 입니다.</h1>
 	<hr>
 	
 	<!-- 
@@ -64,9 +68,9 @@
 		layout:fragment="content" 부분에 해당 페이지의 고유 내용을 삽입하여 공통 레이아웃을 재사용할 수 있다.	
 	 
 	 -->
+	
 	<div layout:fragment="content">
-		<p>동적으로 교체될 화면content , body , main , section입니다.</p><!--초기값-->
-		
+		<p>동적으로 교체될 화면(content , body , main , section) 입니다.</p>		
 	</div>
 	
 	<h1>푸터(footer) 입니다.</h1>

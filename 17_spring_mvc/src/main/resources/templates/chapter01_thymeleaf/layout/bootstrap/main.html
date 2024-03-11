@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" 
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
-	  layout:decorate="~{/chapter01_thymeleaf/layout/bootstrap/layout.html}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorate="~{/chapter01_thymeleaf/layout/bootstrap/layout.html}">
 <head>
 <meta charset="UTF-8">
 <title>main</title>
 </head>
 <body>
+
+<div layout:fragment="content">
 	
-	<div layout:fregment="content">
-    <!-- Categories Section Begin -->
+	<!-- Categories Section Begin -->
     <section class="categories">
         <div class="container-fluid">
             <div class="row">
@@ -619,8 +620,7 @@
 </div>
 <!-- Instagram End -->
 
-		
-	</div>
+</div>
 
 </body>
 </html>
